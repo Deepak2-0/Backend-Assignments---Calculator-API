@@ -48,12 +48,14 @@ app.post("/sub", (req,res)=>{
     let num2 = req.body.num2;
     
     if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
-        res.status(404).send("invalid data types");
+        //res.status(404).send("invalid data types");
+        res.send({"status": "error","message": "invalid data types"});
         return;
     }
     
     if(parseFloat(num1)< -1000000  || parseFloat(num2) < -1000000){
-        res.status(404).send("Underflow");
+        //res.status(404).send("Underflow");
+        res.send({"status": "failure","message": "Underflow"});
         return;
     }
 
@@ -72,12 +74,14 @@ app.post("/multiply", (req,res)=>{
     let num2 = req.body.num2;
     
     if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
-        res.status(404).send("invalid data types");
+        //res.status(404).send("invalid data types");
+        res.send({"status": "error","message": "invalid data types"});
         return;
     }
     
     if(parseFloat(num1)> 1000000  || parseFloat(num2) > 1000000){
-        res.status(404).send("Overflow");
+        //res.status(404).send("Overflow");
+        res.send({"status": "failure","message": "Overflow"});
         return;
     }
 
@@ -85,7 +89,7 @@ app.post("/multiply", (req,res)=>{
 
     const answer = {
         status: "success",
-        message: "the product of given numbers",
+        message: "The product of given numbers",
         result: result
     }
     res.send(answer);
@@ -97,14 +101,16 @@ app.post("/division", (req,res)=>{
     
 
     if(parseFloat(num2) === 0){
-        res.status(400).send("Cannot divide by zero");
+        //res.status(400).send("Cannot divide by zero");
+        res.send({"status": "error","message": "Cannot divide by zero"});
+        return;
     }
 
     const result = parseFloat(num1) / parseFloat(num2);
 
     const answer = {
         status: "success",
-        message: "the division of given numbers",
+        message: "The division of given numbers",
         result: result
     }
     res.send(answer);
