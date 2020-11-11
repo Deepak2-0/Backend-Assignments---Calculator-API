@@ -23,7 +23,7 @@ app.post("/add", (req,res)=>{
     
     if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
         //res.status(404).send("invalid data types");
-        res.send({"status": "error","message": "invalid data types"});
+        res.send({"status": "error","message": "Invalid data types"});
         return;
     }
     
@@ -37,7 +37,7 @@ app.post("/add", (req,res)=>{
 
     const answer = {
         "status": "success",
-        "message": "the sum of given two number",
+        "message": "the sum of given two numbers",
         "sum": result
     }
     res.send(answer);
@@ -49,7 +49,7 @@ app.post("/sub", (req,res)=>{
     
     if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
         //res.status(404).send("invalid data types");
-        res.send({"status": "error","message": "invalid data types"});
+        res.send({"status": "error","message": "Invalid data types"});
         return;
     }
     
@@ -63,7 +63,7 @@ app.post("/sub", (req,res)=>{
 
     const answer = {
         "status": "success",
-        "message": "the difference of given two number",
+        "message": "the difference of given two numbers",
         "difference": result
     }
     res.send(answer);
@@ -75,7 +75,7 @@ app.post("/multiply", (req,res)=>{
     
     if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
         //res.status(404).send("invalid data types");
-        res.send({"status": "error","message": "invalid data types"});
+        res.send({"status": "error","message": "Invalid data types"});
         return;
     }
     
