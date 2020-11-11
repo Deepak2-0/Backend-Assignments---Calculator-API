@@ -34,7 +34,7 @@ app.post("/add", (req,res)=>{
     const result = parseFloat(num1) + parseFloat(num2);
 
     const answer = {
-        status: "success/failure/error",
+        status: "success",
         message: "the sum of given two number",
         sum: result
     }
@@ -58,7 +58,7 @@ app.post("/sub", (req,res)=>{
     const result = parseFloat(num1) - parseFloat(num2);
 
     const answer = {
-        status: "success/failure/error",
+        status: "success",
         message: "the difference of given two number",
         difference: result
     }
@@ -82,7 +82,7 @@ app.post("/multiply", (req,res)=>{
     const result = parseFloat(num1) * parseFloat(num2);
 
     const answer = {
-        status: "success/failure/error",
+        status: "success",
         message: "the product of given numbers",
         result: result
     }
@@ -110,7 +110,7 @@ app.post("/division", (req,res)=>{
     const result = parseFloat(num1) / parseFloat(num2);
 
     const answer = {
-        status: "success/failure/error",
+        status: "success",
         message: "the division of given numbers",
         result: result
     }
