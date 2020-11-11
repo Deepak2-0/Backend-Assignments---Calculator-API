@@ -62,9 +62,9 @@ app.post("/sub", (req,res)=>{
     const result = parseFloat(num1) - parseFloat(num2);
 
     const answer = {
-        status: "success",
-        message: "the difference of given two number",
-        difference: result
+        "status": "success",
+        "message": "the difference of given two number",
+        "difference": result
     }
     res.send(answer);
 })
@@ -88,9 +88,9 @@ app.post("/multiply", (req,res)=>{
     const result = parseFloat(num1) * parseFloat(num2);
 
     const answer = {
-        status: "success",
-        message: "The product of given numbers",
-        result: result
+        "status": "success",
+        "message": "The product of given numbers",
+        "result": result
     }
     res.send(answer);
 })
@@ -109,9 +109,9 @@ app.post("/division", (req,res)=>{
     const result = parseFloat(num1) / parseFloat(num2);
 
     const answer = {
-        status: "success",
-        message: "The division of given numbers",
-        result: result
+        "status": "success",
+        "message": "The division of given numbers",
+        "result": result
     }
     res.send(answer);
 })
