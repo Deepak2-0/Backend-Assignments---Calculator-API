@@ -22,21 +22,23 @@ app.post("/add", (req,res)=>{
     let num2 = req.body.num2;
     
     if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
-        res.status(404).send("invalid data types");
+        //res.status(404).send("invalid data types");
+        res.send({"status": "error","message": "invalid data types"});
         return;
     }
     
     if(parseFloat(num1)> 1000000  || parseFloat(num2) > 1000000){
-        res.status(404).send("Overflow");
+        //res.status(404).send("Overflow");
+        res.send({"status": "failure","message": "Overflow"});
         return;
     }
 
     const result = parseFloat(num1) + parseFloat(num2);
 
     const answer = {
-        status: "success",
-        message: "the sum of given two number",
-        sum: result
+        "status": "success",
+        "message": "the sum of given two number",
+        "sum": result
     }
     res.send(answer);
 })
@@ -93,15 +95,6 @@ app.post("/division", (req,res)=>{
     let num1 = req.body.num1;
     let num2 = req.body.num2;
     
-    // if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
-    //     res.status(404).send("invalid data types");
-    //     return;
-    // }
-    
-    // if(parseFloat(num1)> 1000000  || parseFloat(num2) > 1000000){
-    //     res.status(404).send("Overflow");
-    //     return;
-    // }
 
     if(parseFloat(num2) === 0){
         res.status(400).send("Cannot divide by zero");
