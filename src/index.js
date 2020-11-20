@@ -95,18 +95,29 @@ app.post("/multiply", (req,res)=>{
     res.send(answer);
 })
 
-app.post("/division", (req,res)=>{
+app.post("/divide", (req,res)=>{
     let num1 = req.body.num1;
     let num2 = req.body.num2;
     
+    if(Number(num1) !== parseFloat(num1)  || Number(num2) !== parseFloat(num2)){
+        //res.status(404).send("invalid data types");
+        res.send({"status": "error","message": "Invalid data types"});
+        return;
+    }
+    
+    if(parseFloat(num1)> 1000000  || parseFloat(num2) > 1000000){
+        //res.status(404).send("Overflow");
+        res.send({"status": "failure","message": "Overflow"});
+        return;
+    }
 
-    if(parseFloat(num2) === 0){
+    if(num2 === 0){
         //res.status(400).send("Cannot divide by zero");
         res.send({"status": "error","message": "Cannot divide by zero"});
         return;
     }
 
-    const result = parseFloat(num1) / parseFloat(num2);
+    const result = num1 / num2;
 
     const answer = {
         "status": "success",
