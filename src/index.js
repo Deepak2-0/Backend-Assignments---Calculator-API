@@ -29,11 +29,17 @@ app.post("/add", (req,res)=>{
     
     if(parseFloat(num1)> 1000000  || parseFloat(num2) > 1000000){
         //res.status(404).send("Overflow");
-        res.send({"status": "failure","message": "Overflow"});
+        res.send({"status": "error","message": "Overflow"});
         return;
     }
 
     const result = parseFloat(num1) + parseFloat(num2);
+
+    if(result > 1000000){
+        //res.status(404).send("Overflow");
+        res.send({"status": "error","message": "Overflow"});
+        return;
+    }
 
     const answer = {
         "status": "success",
@@ -81,7 +87,7 @@ app.post("/multiply", (req,res)=>{
     
     if(parseFloat(num1)> 1000000  || parseFloat(num2) > 1000000){
         //res.status(404).send("Overflow");
-        res.send({"status": "failure","message": "Overflow"});
+        res.send({"status": "error","message": "Overflow"});
         return;
     }
 
