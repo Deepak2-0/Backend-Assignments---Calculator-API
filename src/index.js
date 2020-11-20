@@ -92,7 +92,15 @@ app.post("/multiply", (req,res)=>{
         return;
     }
 
+
+
     const result = parseFloat(num1) * parseFloat(num2);
+
+    if(result > 1000000){
+        //res.status(404).send("Overflow");
+        res.send({"status": "error","message": "Overflow"});
+        return;
+    }
 
     const answer = {
         "status": "success",
